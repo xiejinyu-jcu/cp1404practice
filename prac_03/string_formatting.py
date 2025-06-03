@@ -11,7 +11,7 @@ year = 1922
 cost = 16035.9
 
 # Use f-string formatting to produce the output:
-print(f"{year}{name} for about {cost}.")
+print(f"{year} {name} for about ${cost:,.0f}!")
 numbers = [1, 19, 123, 456, -25]
 
 
