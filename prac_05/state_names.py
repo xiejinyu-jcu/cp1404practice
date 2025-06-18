@@ -17,6 +17,10 @@ CODE_TO_NAME = {
 }
 print(CODE_TO_NAME)
 
+for code, name in CODE_TO_NAME.items():
+    print(f"{code:<3} is {name}")
+
+
 state_code = input("Enter short state: ").upper()
 while state_code != "":
    try:
@@ -24,5 +28,6 @@ while state_code != "":
    except KeyError:
         print("Invalid short state")
    state_code = input("Enter short state: ").upper()
+
 
 
