@@ -1,25 +1,32 @@
 """
 email
 Estimate: 28 minutes
-Actual:    minutes
+Actual:   40 minutes
 """
 
-
-
 def main():
-    email_to_name={}
-    email=input("Email: ")
-    while email !="":
-        user_name=extract_email_name(email)
-        confirmation = input(f"Is your name {user_name}? (Y/n) ").lower()
-        if confirmation !="Y" and confirmation!="":
-           user_name=input("Name: ")
-           email_to_name[email]=user_name
-           email=input("Email:")
-    for email, user_name in  email_to_name.items():
+    email_to_name = {}
+    email = input("Email: ").strip()
+    while email:
+        user_name = extract_email_name(email)
+        confirmation = input(f"Is your name {user_name}? (Y/n) ").strip()
+        if confirmation.lower() not in ['', 'Y']:
+            user_name = input("Name: ").strip()
+        email_to_name[email] = user_name
+        email = input("Email: ").strip()
+
+    for email, user_name in email_to_name.items():
         print(f"{user_name} ({email})")
 
 
+def extract_email_name(email):
+    name_part = email.split('@')[0]
+    parts = name_part.split('.')
+    user_name = ' '.join(part.title() for part in parts)
+    return user_name
+
+
+main()
 
 
 
