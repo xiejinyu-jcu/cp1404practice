@@ -1,7 +1,7 @@
 """
 email
-Estimate: 20 minutes
-Actual:   32 minutes
+Estimate: 28 minutes
+Actual:    minutes
 """
 
 
