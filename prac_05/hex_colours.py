@@ -11,6 +11,7 @@ COLOR_CODES_NAME={"cornsilk1":"#fff8dc",
 }
 
 def main():
+    """ acquire the color name and jude which is in the dictionary"""
     color_name=input("Enter the color name:").strip().lower()
     while color_name!="":
          if color_name in COLOR_CODES_NAME:
