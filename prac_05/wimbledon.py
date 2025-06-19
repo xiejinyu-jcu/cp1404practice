@@ -1,8 +1,9 @@
 """
 wimbledon
 Estimate: 35 minutes
-Actual:   minutes
+Actual:  50 minutes
 """
+
 
 
 
@@ -16,3 +17,18 @@ def read_wimbledon_file(file):
             country=parts[1]
             data.append([champion,country])
     return data
+
+
+def process_data(data):
+  """return champion win counts and the countries list """
+  champion_count = {}
+  countries = set()
+  for record in data:
+      champion = record[0]
+      country = record[1]
+      if champion in champion_count:
+          champion_count[champion] += 1
+      else:
+          champion_count[champion] = 1
+      countries.add(country)
+  return champion_count, sorted(countries)
