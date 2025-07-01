@@ -1,7 +1,7 @@
 """
 CP1404 Practical 06 - Guitar
 Estimate: 20 minutes
-Actual:  minutes
+Actual: 15 minutes
 """
 CURRENT_YEAR=2025
 VINTAGE_AGE = 50
