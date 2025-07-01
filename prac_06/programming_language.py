@@ -1,7 +1,7 @@
 """
 CP1404 Practical 06 - Programming Language
 Estimate: 25 minutes
-Actual:  minutes
+Actual:  20minutes
 """
 
 class ProgrammingLanguage:
