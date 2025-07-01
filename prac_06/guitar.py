@@ -18,10 +18,10 @@ class Guitar:
         """make the guitar object convert to string """
         return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
-    def get_year(self):
+    def get_age(self):
         """returns how old the guitar is in years"""
         return CURRENT_YEAR - self.year
 
     def is_vintage(self):
         """determine if the guitar is vintage """
-        return self.get_year()>VINTAGE_AGE
+        return self.get_age()>VINTAGE_AGE
