@@ -3,6 +3,8 @@ CP1404 Practical 06 - Guitar
 Estimate: 20 minutes
 Actual:  minutes
 """
+CURRENT_YEAR=2025
+VINTAGE_AGE = 50
 
 class Guitar:
     """create objects and define guitar properties """
@@ -12,3 +14,14 @@ class Guitar:
         self.year = year
         self.cost=cost
 
+    def __str__(self):
+        """make the guitar object convert to string """
+        return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
+
+    def get_year(self):
+        """returns how old the guitar is in years"""
+        return CURRENT_YEAR - self.year
+
+    def is_vintage(self):
+        """determine if the guitar is vintage """
+        return self.get_year()>VINTAGE_AGE
