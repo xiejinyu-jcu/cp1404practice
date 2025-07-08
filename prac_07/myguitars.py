@@ -22,3 +22,13 @@ def load_guitar(filename):
     return guitars
 
 
+def display_guitar(guitars):
+    """display all guitar in the list"""
+    if guitars:
+        name_width = max(len(guitar.name) for guitar in guitars)
+        year_width = max(len(str(guitar.year)) for guitar in guitars)
+        cost_width = max(len(f"${guitar.cost:,.2f}") for guitar in guitars)
+    else:
+        print("No guitars can be displayed.")
+
+
