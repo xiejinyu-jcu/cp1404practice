@@ -50,3 +50,8 @@ def add_new_guitar(guitars):
             print("Invalid input,please enter the valid year and cost .")
 
 
+def save_guitars(filename,guitars):
+   """Save the guitars into the csv file."""
+   with open(filename, "w") as file:
+       for guitar in guitars:
+           file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
