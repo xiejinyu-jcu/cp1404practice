@@ -1,10 +1,22 @@
 """
 CP1404 Practical 07 - my_guitar
 Estimate: 35 minutes
-Actual:  minutes
+Actual:  70 minutes
 """
 
 from guitar import  Guitar
+FILENAME = "guitars.csv"
+
+def main():
+    guitars = load_guitar(FILENAME)
+    print("My guitars are:")
+    display_guitar(guitars)
+    add_new_guitar(guitars)
+    guitars.sort()
+    print("\nSorted guitars by year:")
+    display_guitar(guitars)
+    save_guitars(FILENAME, guitars)
+    print(f"\nGuitars list saved to {FILENAME}.")
 
 
 
@@ -12,9 +24,9 @@ def load_guitar(filename):
     """read the guitar form the csv file"""
     guitars=[]
     try:
-        with open(filename,"r") as file:
-                for line in file:
-                    name, year, cost = line.strip().split(',')
+        with open(filename, "r") as file:
+            for line in file:
+                name, year, cost = line.strip().split(',')
                 guitar = Guitar(name, int(year), float(cost))
                 guitars.append(guitar)
     except FileNotFoundError:
@@ -48,6 +60,7 @@ def add_new_guitar(guitars):
             print(f"{new_guitar} added.")
         except ValueError:
             print("Invalid input,please enter the valid year and cost .")
+     name = input("Name: ").strip()
 
 
 def save_guitars(filename,guitars):
@@ -55,3 +68,9 @@ def save_guitars(filename,guitars):
    with open(filename, "w") as file:
        for guitar in guitars:
            file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
+
+
+main()
+
+
+
