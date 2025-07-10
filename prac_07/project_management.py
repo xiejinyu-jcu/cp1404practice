@@ -37,3 +37,10 @@ def load_projects(filename):
          print(f"File {filename} not found.")
     return projects
 
+def save_projects(projects,filename):
+    """save the projects into file """
+    with open(filename, 'w') as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
+
