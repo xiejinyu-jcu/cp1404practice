@@ -65,6 +65,30 @@ def display_projects(projects, filtered=False):
 
 
 
+def filter_projects_by_date(projects):
+    """filter the user input date """
+    date_str = input("Show projects that start after date (dd/mm/yyyy): ")
+    try:
+        start_date = datetime.strptime(date_str, "%d/%m/%Y").date()
+        filtered_projects = [project for project in projects if project.start_date >= start_date]
+        display_projects(filtered_projects, filtered=True)
+    except ValueError:
+        print("Invalid date format.")
+
+
+def add_new_project(projects):
+    """adding the new projects into the list """
+    print("Let's add a new project")
+    name = input("Name: ").strip()
+    date_str = input("Start date (dd/mm/yyyy): ")
+    try:
+        start_date = datetime.strptime(date_str, "%d/%m/%Y").date()
+        priority = int(input("Priority: "))
+        cost = float(input("Cost estimate: $"))
+        completion = int(input("Percent complete: "))
+        projects.append(Project(name, start_date, priority, cost, completion))
+    except ValueError:
+        print("Invalid input. Project not added.")
 
 
 
