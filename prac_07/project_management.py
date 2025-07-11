@@ -9,6 +9,45 @@ from project import Project
 
 FILENAME = "projects.txt"
 
+def main():
+    """Main function to manage projects."""
+    print("Welcome to Pythonic Project Management")
+    projects = load_projects(FILENAME)
+    if projects:
+        print(f"Loaded {len(projects)} projects from {FILENAME}.")
+    else:
+        print(f"No projects loaded from {FILENAME}.")
+    display_menu()
+    choice = input(">>> ").strip().upper()
+
+    while choice != "Q":
+        if choice == "L":
+            filename = input("Enter filename to load: ")
+            projects = load_projects(filename)
+        elif choice == "S":
+            filename = input("Enter filename to save: ")
+            save_projects(projects, filename)
+        elif choice == "D":
+            display_projects(projects)
+        elif choice == "F":
+            filter_projects_by_date(projects)
+        elif choice == "A":
+            add_new_project(projects)
+        elif choice == "U":
+            update_project(projects)
+        else:
+            print("Invalid choice. Please enter a valid menu option.")
+
+        display_menu()
+        choice = input(">>> ").strip().upper()
+
+    save_choice = input(f"Would you like to save to {FILENAME}? ").lower()
+    if save_choice in ['y', 'yes']:
+        save_projects(projects, FILENAME)
+
+    print("Thank you for using custom-built project management software.")
+
+
 
 
 
@@ -89,6 +128,27 @@ def add_new_project(projects):
         projects.append(Project(name, start_date, priority, cost, completion))
     except ValueError:
         print("Invalid input. Project not added.")
+
+def update_project(projects):
+    """Update a project's completion percentage and/or priority."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    try:
+        choice = int(input("Project choice: "))
+        if 0 <= choice < len(projects):
+            project = projects[choice]
+            print(project)
+            new_percentage = input("New Percentage: ")
+            new_priority = input("New Priority: ")
+
+            if new_percentage:
+                project.completion_percentage = int(new_percentage)
+            if new_priority:
+                project.priority = int(new_priority)
+    except (ValueError, IndexError):
+        print("Invalid choice or input.")
+
+
 
 
 
