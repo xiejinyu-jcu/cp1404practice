@@ -15,40 +15,40 @@ class MilesConverterApp(App):
     """ MilesConverterApp is a Kivy App for converting miles to kilometres """
     output_text = StringProperty('')
 
-
     def build(self):
-        """ build the Kivy app from the kv file """
+        """Build the Kivy app from the .kv file."""
         self.title = "Convert Miles to Kilometres"
         self.root = Builder.load_file('miles_to_km_converter.kv')
+        # Set initial value on startup
         self.handle_calculate()
         return self.root
 
     def handle_calculate(self):
-        """ handle calculation (could be button press or other call), output result to label widget """
+        """
+        Handle calculation and update the output label text.
+        This is called on text input change.
+        """
         value = self.get_validated_miles()
         result = value * MILES_TO_KM
         self.output_text = f"{result:.4f}"
 
-
-def handle_increment(self, change):
+    def handle_increment(self, change):
         """
-        handle up/down button press, update the text input with new value, call calculation function
-        :param change: the amount to change
+        Handle up/down button presses by changing the input text.
+        This will then trigger the on_text event.
         """
         value = self.get_validated_miles() + change
         self.root.ids.input_miles.text = str(value)
-        self.handle_calculate()
 
     def get_validated_miles(self):
         """
-        get text input from text entry widget, convert to float
-        :return: 0 if error, float version of text if valid
+        Get and validate the text from the input widget.
+        Returns 0.0 if the input is invalid.
         """
         try:
-            value = float(self.root.ids.input_miles.text)
-            return value
+            return float(self.root.ids.input_miles.text)
         except ValueError:
-            return 0
+            return 0.0
 
 
 MilesConverterApp().run()
