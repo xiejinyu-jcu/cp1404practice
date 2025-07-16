@@ -20,34 +20,16 @@ class DynamicWidgetsApp(App):
 
     def build(self):
         """Build the Kivy GUI."""
-        self.title = "Dynamic Widgets"
-        self.root = Builder.load_file('dynamic_widgets.kv')
-        self.create_widgets()
+        self.title = "Dynamic Labels"
+        self.root = Builder.load_file('dynamic_labels.kv')
+        self.create_labels()
         return self.root
 
-    def create_widgets(self):
-        """Create buttons from data and add them to the GUI."""
-        for name in self.name_to_phone:
-            # create a button for each data entry, specifying the text
-            temp_button = Button(text=name)
-            temp_button.bind(on_press=self.press_entry)
-            # set the button's background colour
-            temp_button.background_color = NEW_COLOUR
-            # add the button to the "entries_box" layout widget
-            self.root.ids.entries_box.add_widget(temp_button)
-
-    def press_entry(self, instance):
-        """Handle pressing entry buttons."""
-        # get name (dictionary key) from the text of Button we clicked on
-        name = instance.text
-        # change the button's background colour
-        instance.background_color = ALTERNATIVE_COLOUR
-        # update status text
-        self.status_text = f"{name}'s number is {self.name_to_phone[name]}"
-
-    def clear_all(self):
-        """Clear all widgets that are children of the "entries_box" layout widget."""
-        self.root.ids.entries_box.clear_widgets(
+    def create_labels(self):
+        """Create labels widgets from the name list """
+        for name in self.names:
+            temp_label = Label(text=name)
+            self.root.ids.main.add_widget(temp_label)
 
 DynamicWidgetsApp().run()
 
