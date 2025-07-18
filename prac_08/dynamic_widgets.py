@@ -15,7 +15,6 @@ class DynamicWidgetsApp(App):
     def __init__(self, **kwargs):
         """Construct main app."""
         super().__init__(**kwargs)
-        # basic data (model) example - dictionary of names: phone numbers
         self.names= ["Bob Brown", "Cat Cyan", "Oren Ochre"]
 
     def build(self):
