@@ -3,7 +3,9 @@ from kivy.lang import Builder
 
 
 class BoxLayoutDemo(App):
+    """main class for the boxlayout"""
     def build(self):
+        """ create the kivy interface """
         self.title = "Box Layout Demo"
         self.root = Builder.load_file('box_layout.kv')
         return self.root
