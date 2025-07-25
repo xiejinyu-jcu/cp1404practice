@@ -1,4 +1,4 @@
-from musician import  Musician
+
 class Band:
     """a band class with a list musicians"""
     def __init__(self,name=""):
