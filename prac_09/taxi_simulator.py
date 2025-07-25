@@ -1,4 +1,4 @@
-from random import choice
+
 
 from taxi import Taxi
 from silver_service_taxi import SilverServiceTaxi
@@ -18,8 +18,21 @@ def main():
     choice=input("<<< ").lower()
 
 
+def display_taxis(taxis):
+    """display the taxi form the list """
+    for i,taxi in enumerate(taxis):
+        print(f"{i}-{taxi}")
 
-
+def choose_taxi(taxis):
+    """ accord the user choose,print a list of available taxis"""
+    display_taxis(taxis)
+    choice=int(input("Choose taxi:"))
+    if choice in range(len(taxis)):
+        current_taxi=taxis[choice]
+    else:
+        print("invalid taxi choice")
+    print(f"bill to date: ${total_bill:.2f}")
+    return current_taxi
 
 
 
