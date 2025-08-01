@@ -19,5 +19,3 @@ class Band:
      """return a string for each musician with their corresponding instrument"""
      return "\n".join(musician.play() for musician in self.musicians)
 
-
-
