@@ -22,7 +22,7 @@ def is_long_word(word, length=5):
     >>> is_long_word("Python", 6)
     True
     """
-    return len(word) > length
+    return len(word) >= length
 
 
 def run_tests():
@@ -47,19 +47,4 @@ def run_tests():
 
 run_tests()
 
-
-# (PyCharm may see your >>> doctest comments and run doctests anyway.)
-# doctest.testmod()
-
-
-# (Don't change the tests, change the function!)
-
-
-# starting with a capital and ending with a single full stop.
-# Important: start with a function header and just use pass as the body
-# then add doctests for 3 tests:
-#   'hello' -> 'Hello.'
-#   'It is an ex parrot.' -> 'It is an ex parrot.'
-# and one more that you decide is a useful test.
-# Run your doctests and watch the tests fail.
-# Then write the body of the function so that the tests pass.
+doctest.testmod()
