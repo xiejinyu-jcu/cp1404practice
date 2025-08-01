@@ -48,3 +48,17 @@ def run_tests():
 run_tests()
 
 doctest.testmod()
+
+def format_phrase(phrase):
+    """
+    Format a phrase as a sentence.
+    >>> format_phrase('hello')
+    'Hello.'
+    >>> format_phrase('It is an ex parrot.')
+    'It is an ex parrot.'
+    >>> format_phrase('life is something to be experienced')
+    'Life is something to be experienced.'
+    """
+    if phrase.endswith('.'):
+        return phrase.capitalize()
+    return phrase.capitalize() + '.'
